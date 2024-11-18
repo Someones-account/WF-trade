@@ -6,6 +6,7 @@ public class Main {
         JFrame mainFrame = new JFrame("WF Trading");
         Retriever retriever = new Retriever();
         Window window = new Window();
+        Calculator calculator = new Calculator();
 
         mainFrame.add(window.render());
         mainFrame.setVisible(true);
@@ -13,6 +14,6 @@ public class Main {
         mainFrame.setSize(700, 500);
 
         System.out.println(retriever.getActiveOrders("gauss_prime_set"));
-        System.out.println(retriever.getPrices("gauss_prime_set"));
+        System.out.println(calculator.occurrences(retriever.getPrices()));
     }
 }
