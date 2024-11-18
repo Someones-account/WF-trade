@@ -34,12 +34,14 @@ public class Retriever {
         return activeOrders;
     }
 
-    public ArrayList<Integer> getPrices(String item) throws IOException, InterruptedException {
+    public ArrayList<Integer> getPrices() throws IOException, InterruptedException {
         ArrayList<Integer> prices = new ArrayList<>();
 
-        for (JsonNode order : activeOrders) {
-            int price = order.get("platinum").asInt();
-                prices.add(price);
+        if (!activeOrders.isEmpty()) {
+            for (JsonNode order : activeOrders) {
+                prices.add(order.get("platinum").asInt());
+            }
+            return prices;
         }
         return prices;
     }
