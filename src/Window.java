@@ -7,33 +7,43 @@ import java.util.ArrayList;
 public class Window extends JFrame implements ActionListener {
     JPanel mainPanel = new JPanel();
     JTextField addItemField = new JTextField(16);
-    JButton submitter = new JButton("submit");
-    String itemName = "xaku_prime_set";
+    JButton submitter;
+    String itemName;
     Retriever retriever;
+    JLabel resultField;
     ArrayList<Integer> prices;
 
     public Window(Retriever ret) {
+        this.submitter = new JButton("Submit");
+        this.resultField = new JLabel();
+        this.retriever = ret;
+        this.submitter.addActionListener(this);
         mainPanel.add(addItemField);
         mainPanel.add(submitter);
-        retriever = ret;
-    }
-
-    public JPanel render() {
-        return mainPanel;
+        mainPanel.add(this.resultField);
     }
 
     public void actionPerformed(ActionEvent e) {
         String value = e.getActionCommand();
-        if (value.equals("submit")) {
-            itemName = addItemField.getText();
+        String input = addItemField.getText();
+        if (value.equals("Submit") && !input.isEmpty()) {
+            itemName = input;
             addItemField.setText("");
             try {
                 retriever.getActiveOrders(itemName);
                 prices = retriever.getPrices();
-                mainPanel.add(new JLabel(String.valueOf(prices.get(0))));
+                this.resultField.setText(prices.toString());
+                super.update(this.getGraphics());
             } catch (IOException | InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
         }
     }
+
+
+
+    public JPanel render() {
+        return mainPanel;
+    }
+
 }
