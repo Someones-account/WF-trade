@@ -12,7 +12,7 @@ public class Main {
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(700, 500);
 
-//        System.out.println(retriever.getActiveOrders(window.itemName));
-//        System.out.println(retriever.getPrices());
+        System.out.println(retriever.getActiveOrders(window.itemName));
+        System.out.println(retriever.getPrices());
     }
 }

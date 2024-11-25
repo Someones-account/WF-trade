@@ -8,7 +8,7 @@ public class Window extends JFrame implements ActionListener {
     JPanel mainPanel = new JPanel();
     JTextField addItemField = new JTextField(16);
     JButton submitter = new JButton("submit");
-    String itemName;
+    String itemName = "xaku_prime_set";
     Retriever retriever;
     ArrayList<Integer> prices;
 
