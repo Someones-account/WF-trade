@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         JFrame mainFrame = new JFrame("WF Trading");
         Retriever retriever = new Retriever();
-        Window window = new Window(retriever);
         Calculator calculator = new Calculator();
+        Window window = new Window(retriever, calculator);
 
         mainFrame.add(window.render());
         mainFrame.setVisible(true);

@@ -3,21 +3,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.TreeMap;
+import java.io.FileWriter;
 
 public class Window extends JFrame implements ActionListener {
+    private final Calculator calculator;
+    private final Retriever retriever;
     JPanel mainPanel = new JPanel();
     JTextField addItemField = new JTextField(16);
     JButton submitter;
     String itemName;
-    Retriever retriever;
     JLabel resultField;
     ArrayList<Integer> prices;
 
-    public Window(Retriever ret) {
+    public Window(Retriever ret, Calculator calc) {
         this.submitter = new JButton("Submit");
         this.resultField = new JLabel();
         this.retriever = ret;
         this.submitter.addActionListener(this);
+        this.calculator = calc;
         mainPanel.add(addItemField);
         mainPanel.add(submitter);
         mainPanel.add(this.resultField);
@@ -31,8 +35,8 @@ public class Window extends JFrame implements ActionListener {
             addItemField.setText("");
             try {
                 retriever.getActiveOrders(itemName);
-                prices = retriever.getPrices("sell");
-                this.resultField.setText(prices.toString());
+                TreeMap<Integer, Integer> priceStats = calculator.occurrences(retriever.activeSellOrders);
+                this.resultField.setText(priceStats.toString());
                 super.update(this.getGraphics());
             } catch (IOException | InterruptedException ex) {
                 throw new RuntimeException(ex);

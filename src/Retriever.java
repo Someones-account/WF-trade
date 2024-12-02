@@ -7,6 +7,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.TreeMap;
 
 public class Retriever {
 
@@ -14,6 +16,7 @@ public class Retriever {
     ObjectMapper mapper = new ObjectMapper();
     ArrayList<JsonNode> activeSellOrders = new ArrayList<>();
     ArrayList<JsonNode> activeBuyOrders = new ArrayList<>();
+    JsonNode allOrders;
 
     public void getActiveOrders(String item) throws IOException, InterruptedException {
         String URLString = String.format("https://api.warframe.market/v1/items/%s/orders", item);
@@ -23,7 +26,7 @@ public class Retriever {
 
         JsonNode itemOrders = mapper.readTree(response.body());
         try {
-            JsonNode allOrders = itemOrders.get("payload").get("orders");
+            allOrders = itemOrders.get("payload").get("orders");
             activeSellOrders.clear();
             activeBuyOrders.clear();
 
@@ -43,9 +46,9 @@ public class Retriever {
         }
     }
 
-    public ArrayList<Integer> getPrices(String ordersType) throws IOException, InterruptedException {
+    public ArrayList<Integer> getPrices(String ordersType){
         ArrayList<Integer> prices = new ArrayList<>();
-        ArrayList<JsonNode> orders = ordersType == "sell" ? activeSellOrders : activeBuyOrders;
+        ArrayList<JsonNode> orders = Objects.equals(ordersType, "sell") ? activeSellOrders : activeBuyOrders;
 
         if (orders.isEmpty()) {
             prices.add(0);
@@ -55,4 +58,5 @@ public class Retriever {
         }
         return prices;
     }
+
 }
