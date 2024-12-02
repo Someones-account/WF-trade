@@ -15,6 +15,5 @@ public class Main {
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(700, 500);
 
-        TreeMap<Integer, Integer> allOffers = calculator.occurrences(retriever.getPrices());
     }
 }

@@ -31,7 +31,7 @@ public class Window extends JFrame implements ActionListener {
             addItemField.setText("");
             try {
                 retriever.getActiveOrders(itemName);
-                prices = retriever.getPrices();
+                prices = retriever.getPrices("sell");
                 this.resultField.setText(prices.toString());
                 super.update(this.getGraphics());
             } catch (IOException | InterruptedException ex) {

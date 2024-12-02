@@ -4,16 +4,6 @@ import java.util.TreeMap;
 
 public class Calculator {
 
-//    public int minPrice(ArrayList<Integer> price_list) {
-//        int min = price_list.get(0);
-//        for (int price : price_list) {
-//            if (price < min) {
-//                min = price;
-//            }
-//        }
-//        return min;
-//    }
-
     public TreeMap<Integer, Integer> occurrences(ArrayList<Integer> price_list) {
         // Make it sum quantities
 
@@ -26,6 +16,16 @@ public class Calculator {
 
     public int minPrice(TreeMap<Integer, Integer> price_list) {
         return price_list.firstEntry().getKey();
+    }
+
+    public int minPrice(ArrayList<Integer> price_list) {
+        int min = price_list.get(0);
+        for (int price : price_list) {
+            if (price < min) {
+                min = price;
+            }
+        }
+        return min;
     }
 
     public Integer[] getMode(TreeMap<Integer, Integer> offer_numbers) {
@@ -49,5 +49,11 @@ public class Calculator {
         Integer mode = getMode(order_numbers)[0];
         int leastPrice = minPrice(order_numbers);
         return ((double) (mode - leastPrice) / mode) * 100;
+    }
+
+    public int priceSpread(ArrayList<Integer> selling, ArrayList<Integer> buying) {
+        int minBuy = minPrice(buying);
+        int minSell = minPrice(selling);
+        return minBuy - minSell;
     }
 }
