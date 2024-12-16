@@ -8,7 +8,8 @@ public class Main {
         JFrame mainFrame = new JFrame("WF Trading");
         Retriever retriever = new Retriever();
         Calculator calculator = new Calculator();
-        Window window = new Window(retriever, calculator);
+        DataManager dataManager = new DataManager();
+        Window window = new Window(retriever, calculator, dataManager);
 
         mainFrame.add(window.render());
         mainFrame.setVisible(true);

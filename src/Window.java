@@ -9,19 +9,23 @@ import java.io.FileWriter;
 public class Window extends JFrame implements ActionListener {
     private final Calculator calculator;
     private final Retriever retriever;
+    private final DataManager dataManager;
     JPanel mainPanel = new JPanel();
     JTextField addItemField = new JTextField(16);
     JButton submitter;
     String itemName;
     JLabel resultField;
     ArrayList<Integer> prices;
+    StorageTab storage;
 
-    public Window(Retriever ret, Calculator calc) {
+    public Window(Retriever ret, Calculator calc, DataManager dm) {
         this.submitter = new JButton("Submit");
         this.resultField = new JLabel();
         this.retriever = ret;
         this.submitter.addActionListener(this);
+        this.dataManager = dm;
         this.calculator = calc;
+        this.storage = new StorageTab(retriever, dataManager);
         mainPanel.add(addItemField);
         mainPanel.add(submitter);
         mainPanel.add(this.resultField);
@@ -46,7 +50,8 @@ public class Window extends JFrame implements ActionListener {
 
 
 
-    public JPanel render() {
+    public JPanel render() throws IOException {
+        mainPanel.add(storage.initialRender());
         return mainPanel;
     }
 

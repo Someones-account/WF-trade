@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DataManager {
-    public static ArrayList<String> readLineByLine(String filename) throws IOException {
+    public ArrayList<String> readLineByLine(String filename) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(filename));
         String line = reader.readLine();
         ArrayList<String> records = new ArrayList<>();
@@ -19,9 +19,10 @@ public class DataManager {
         return records;
     }
 
-    public static void writeLine(String filename, String newLine) throws IOException {
+    public static void writeLine(String filename, String newLine, int amount, int priceGoal) throws IOException {
         FileWriter myWriter = new FileWriter(filename);
-        myWriter.write(newLine);
+        myWriter.write(newLine + "-" + amount + "-" + priceGoal + "\n");
         myWriter.close();
     }
+
 }
