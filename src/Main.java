@@ -1,10 +1,8 @@
 import javax.swing.*;
 import java.io.*;
-import java.util.Arrays;
-import java.util.TreeMap;
 
 public class Main {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
         JFrame mainFrame = new JFrame("WF Trading");
         Retriever retriever = new Retriever();
         Calculator calculator = new Calculator();
@@ -14,7 +12,7 @@ public class Main {
         mainFrame.add(window.render());
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(700, 500);
+        mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
     }
 }

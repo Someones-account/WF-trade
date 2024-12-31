@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88ef1342-f336-4290-b53e-20f45b9e3d37" name="Changes" comment="Window changes">
+    <list default="true" id="88ef1342-f336-4290-b53e-20f45b9e3d37" name="Changes" comment="Function calls optimisation">
+      <change afterPath="$PROJECT_DIR$/src/AddItemWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SearchTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StorageTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StorageTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Download/jackson-core-2.4.3-sources.jar",
     "node.js.detected.package.eslint": "true",
@@ -91,6 +95,18 @@
       <workItem from="1730819078649" duration="13184000" />
       <workItem from="1731940299061" duration="3053000" />
       <workItem from="1732474528050" duration="8864000" />
+      <workItem from="1732548709977" duration="766000" />
+      <workItem from="1733149315624" duration="4039000" />
+      <workItem from="1733830743942" duration="2000" />
+      <workItem from="1734796114719" duration="9646000" />
+      <workItem from="1735050071850" duration="13108000" />
+      <workItem from="1735141520012" duration="6219000" />
+      <workItem from="1735250405513" duration="2563000" />
+      <workItem from="1735253025721" duration="1618000" />
+      <workItem from="1735492808591" duration="8303000" />
+      <workItem from="1735583172328" duration="9519000" />
+      <workItem from="1735599633876" duration="2486000" />
+      <workItem from="1735656257331" duration="2045000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -116,7 +132,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732474691578</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Extended Calculator">
+      <option name="closed" value="true" />
+      <created>1732548842868</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732548842868</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Function calls optimisation">
+      <option name="closed" value="true" />
+      <created>1733153428106</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733153428106</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +168,20 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="Window changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Window changes" />
+    <MESSAGE value="Extended Calculator" />
+    <MESSAGE value="Function calls optimisation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Function calls optimisation" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/StorageTab.java</url>
+          <line>114</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
