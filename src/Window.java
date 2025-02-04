@@ -16,7 +16,7 @@ public class Window extends JPanel {
         this.retriever = ret;
         this.dataManager = dm;
         this.calculator = calc;
-        this.storage = new StorageTab(retriever, dataManager);
+        this.storage = new StorageTab(dataManager);
         this.search = new SearchTab(retriever, calculator);
         this.about = new AboutTab();
     }

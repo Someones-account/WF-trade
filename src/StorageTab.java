@@ -1,13 +1,10 @@
 import javax.swing.*;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class StorageTab implements ActionListener {
-    private Retriever retriever;
     private final DataManager dataManager;
     JPanel mainPanel = new JPanel(new GridLayout(0, 1));
     JButton addButton = new JButton("+ Add");
@@ -17,8 +14,7 @@ public class StorageTab implements ActionListener {
     Integer currentRow;
     String[] editedRow = new String[3];
 
-    public StorageTab(Retriever ret, DataManager dm) {
-        this.retriever = ret;
+    public StorageTab(DataManager dm) {
         this.dataManager = dm;
         addButton.addActionListener(this);
         deleteButton.addActionListener(this);
@@ -34,14 +30,6 @@ public class StorageTab implements ActionListener {
         }
         String[][] DataAsList = parsedData.toArray(new String[parsedData.size()][]);
         listedItems = new JTable(DataAsList, names);
-//        listedItems.addFocusListener(new FocusAdapter() {
-//            @Override
-//            public void focusLost(FocusEvent e) {
-//                TableCellEditor tce = listedItems.getCellEditor();
-//                if(tce != null)
-//                    tce.stopCellEditing();
-//            }
-//        });
 
         // Visual settings
         listedItems.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -63,18 +51,6 @@ public class StorageTab implements ActionListener {
                 }
             }
         });
-
-//        listedItems.getModel().addTableModelListener(new TableModelListener() {
-//
-//            @Override
-//            public void tableChanged(TableModelEvent e) {
-//                if(listedItems.isEditing()) {
-//                    for (int i = 0; i < 3; i++) {
-//                        editedRow[i] = listedItems.getModel().getValueAt(currentRow, i).toString();
-//                    }
-//                }
-//            }
-//        });
 
         mainPanel.add(scrollPane, BorderLayout.CENTER);
         mainPanel.add(lowerButtonPanel(), BorderLayout.SOUTH);
