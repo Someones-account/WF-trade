@@ -1,11 +1,6 @@
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.TreeMap;
 
 public class Window extends JPanel {
     private final Calculator calculator;
@@ -14,18 +9,22 @@ public class Window extends JPanel {
     JTabbedPane mainPanel = new JTabbedPane();
     ArrayList<Integer> prices;
     StorageTab storage;
+    SearchTab search;
+    AboutTab about;
 
     public Window(Retriever ret, Calculator calc, DataManager dm) {
         this.retriever = ret;
         this.dataManager = dm;
         this.calculator = calc;
         this.storage = new StorageTab(retriever, dataManager);
+        this.search = new SearchTab(retriever, calculator);
+        this.about = new AboutTab();
     }
 
     public JTabbedPane render() throws IOException {
         mainPanel.add("Your storage", storage.initialRender());
-        mainPanel.add("Search items", new JPanel());
-        mainPanel.add("Optimal to sell", new JPanel());
+        mainPanel.add("Search items", search.initialRender());
+        mainPanel.add("About", about.render());
         return mainPanel;
     }
 

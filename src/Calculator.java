@@ -64,6 +64,6 @@ public class Calculator {
     public int priceSpread(ArrayList<Integer> selling, ArrayList<Integer> buying) {
         int maxBuy = maxPrice(buying);
         int minSell = minPrice(selling);
-        return maxBuy - minSell;
+        return minSell - maxBuy;
     }
 }

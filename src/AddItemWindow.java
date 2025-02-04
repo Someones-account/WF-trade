@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -41,9 +42,13 @@ public class AddItemWindow implements ActionListener {
         if (value.equals("Submit")) {
             try {
                 if (!itemQuantity.getText().isEmpty() && !itemName.getText().isEmpty() && !itemPrice.getText().isEmpty()) {
-                    manager.writeLine("src/items.txt", itemName.getText(), itemQuantity.getText(), itemPrice.getText());
-                    storageTab.rerender();
-                    addWindow.dispatchEvent(new WindowEvent(addWindow, WindowEvent.WINDOW_CLOSING));
+                    if (itemQuantity.getText().matches("[0-9]+") && itemPrice.getText().matches("[0-9]+")) {
+                        manager.writeLine("src/items.txt", itemName.getText(), itemQuantity.getText(), itemPrice.getText());
+                        storageTab.rerender();
+                        addWindow.dispatchEvent(new WindowEvent(addWindow, WindowEvent.WINDOW_CLOSING));
+                    } else {
+                        panel.setBackground(new Color(255, 123, 123));
+                    }
                 }
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
